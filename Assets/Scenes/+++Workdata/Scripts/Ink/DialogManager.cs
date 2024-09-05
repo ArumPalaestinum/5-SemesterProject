@@ -8,7 +8,7 @@ public class DialogManager : MonoBehaviour
 {
 
     [Header("Dialog UI")]
-    [SerializeField] private GameObject dialogPanal;
+    [SerializeField] private GameObject dialogPanel;
     [SerializeField] private TextMeshProUGUI dialogText;
 
     private Story currentStory;
@@ -31,9 +31,10 @@ public class DialogManager : MonoBehaviour
         return instance;
     }
 
-    private void start()
+    private void Start()
     {
         dialogIsPlaying = false;
+        dialogPanel.SetActive(false);
     }
 
     private void Update()
@@ -45,6 +46,7 @@ public class DialogManager : MonoBehaviour
 
         if (Input.GetKeyDown("e"))
         {
+            Debug.Log("e was pressed");
             ContinueStory();
         }
     }
@@ -53,6 +55,7 @@ public class DialogManager : MonoBehaviour
     {
         currentStory = new Story(inkJSON.text);
         dialogIsPlaying = true;
+        dialogPanel.SetActive(true);
 
         ContinueStory();
     }
@@ -62,6 +65,7 @@ public class DialogManager : MonoBehaviour
     {
         dialogIsPlaying = false;
         dialogText.text = "";
+        dialogPanel.SetActive(false);
     }
 
     private void ContinueStory()
@@ -69,6 +73,7 @@ public class DialogManager : MonoBehaviour
         if (currentStory.canContinue)
         {
             dialogText.text = currentStory.Continue();
+            Debug.Log("Current story text:" + dialogText.text);
         }
         else
         {
