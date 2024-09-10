@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
@@ -10,10 +8,11 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update()
     {
+
         if (Input.GetKeyDown("e"))
         {
-            
             DialogManager.GetInstance().EnterDialogMode(inkJSON);
+            gameObject.SetActive(false);
         }
     }
 }

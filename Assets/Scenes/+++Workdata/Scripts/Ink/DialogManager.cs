@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
 using Ink.Runtime;
+using TMPro;
+using UnityEngine;
 
 public class DialogManager : MonoBehaviour
 {
@@ -18,7 +16,7 @@ public class DialogManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null) 
+        if (instance != null)
         {
             Debug.LogWarning("Found more than one Dialog Manager in scene");
         }
@@ -53,6 +51,8 @@ public class DialogManager : MonoBehaviour
 
     public void EnterDialogMode(TextAsset inkJSON)
     {
+        //if(dialogIsPlaying) return;
+
         currentStory = new Story(inkJSON.text);
         dialogIsPlaying = true;
         dialogPanel.SetActive(true);
