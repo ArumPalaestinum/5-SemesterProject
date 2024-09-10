@@ -14,6 +14,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             
             DialogManager.GetInstance().EnterDialogMode(inkJSON);
+            gameObject.SetActive(false);
         }
     }
 }
