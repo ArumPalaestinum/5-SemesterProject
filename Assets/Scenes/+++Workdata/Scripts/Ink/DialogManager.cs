@@ -57,7 +57,7 @@ public class DialogManager : MonoBehaviour
         dialogIsPlaying = true;
         dialogPanel.SetActive(true);
 
-        ContinueStory();
+        //ContinueStory();
     }
 
 
@@ -72,8 +72,9 @@ public class DialogManager : MonoBehaviour
     {
         if (currentStory.canContinue)
         {
+
             dialogText.text = currentStory.Continue();
-            Debug.Log("Current story text:" + dialogText.text);
+            Debug.Log("Current story text: " + dialogText.text);
         }
         else
         {
