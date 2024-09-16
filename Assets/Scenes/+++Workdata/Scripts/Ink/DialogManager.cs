@@ -1,6 +1,7 @@
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 public class DialogManager : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class DialogManager : MonoBehaviour
 
     private void Start()
     {
+        dialogPanel.transform.DOMoveY(transform.position.y - 3, 3).SetLoops(-1, LoopType.Yoyo);
         dialogIsPlaying = false;
         dialogPanel.SetActive(false);
     }
