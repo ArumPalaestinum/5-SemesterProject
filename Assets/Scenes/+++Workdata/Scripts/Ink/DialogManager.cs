@@ -1,6 +1,7 @@
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 public class DialogManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class DialogManager : MonoBehaviour
     [Header("Dialog UI")]
     [SerializeField] private GameObject dialogPanel;
     [SerializeField] private TextMeshProUGUI dialogText;
+    [SerializeField] AnimationCurve animCurve;
 
     private Story currentStory;
     private bool dialogIsPlaying;
@@ -33,6 +35,7 @@ public class DialogManager : MonoBehaviour
     {
         dialogIsPlaying = false;
         dialogPanel.SetActive(false);
+        dialogPanel.transform.DOMoveY(transform.position.y - 3, 2).SetEase(animCurve).SetLoops(-1, LoopType.Yoyo);
     }
 
     private void Update()
