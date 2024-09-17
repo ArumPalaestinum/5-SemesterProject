@@ -9,6 +9,7 @@ public class DialogManager : MonoBehaviour
     [Header("Dialog UI")]
     [SerializeField] private GameObject dialogPanel;
     [SerializeField] private TextMeshProUGUI dialogText;
+    [SerializeField] AnimationCurve animCurve;
 
     private Story currentStory;
     private bool dialogIsPlaying;
@@ -32,9 +33,9 @@ public class DialogManager : MonoBehaviour
 
     private void Start()
     {
-        dialogPanel.transform.DOMoveY(transform.position.y - 3, 3).SetLoops(-1, LoopType.Yoyo);
         dialogIsPlaying = false;
         dialogPanel.SetActive(false);
+        dialogPanel.transform.DOMoveY(transform.position.y - 3, 2).SetEase(animCurve).SetLoops(-1, LoopType.Yoyo);
     }
 
     private void Update()
