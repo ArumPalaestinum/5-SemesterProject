@@ -35,7 +35,7 @@ public class DialogManager : MonoBehaviour
     {
         dialogIsPlaying = false;
         dialogPanel.SetActive(false);
-        dialogPanel.transform.DOMoveY(transform.position.y - 3, 2).SetEase(animCurve).SetLoops(-1, LoopType.Yoyo);
+        dialogPanel.transform.DOMoveY(dialogPanel.transform.position.y + .7f , 2).SetEase(animCurve).SetLoops(-1, LoopType.Yoyo);
     }
 
     private void Update()
